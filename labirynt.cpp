@@ -3,6 +3,15 @@
 #include <cstdlib>
 using namespace std;
 
+void print_matrix(int * arr, int n){
+	cout<<"Wylosowana macierz: \n";
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			cout<<*(arr+i*n+j)<<" ";
+		}
+		cout<<"\n";	
+	}
+}
 
 int main()
 {
@@ -19,4 +28,5 @@ int main()
 			arr[i][j] =-100 + (rand()%200)+1; 
 		}
 	}
+	print_matrix((int*)arr,n);
 }
