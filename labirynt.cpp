@@ -13,30 +13,45 @@ void print_matrix(int * arr, int n)
 	}
 }
 
+
+//Goes through the array in spiral, clockwise order
+//prints elements and calculates their sum and product
 void spiral_count(int * arr, int n)
 {	
+	int value;
+	int sum = 0;
+	int product = 1;
 	for(int x=0;x<n-1;x++)
 	{	
 		for(int i=x;i<n-x;i++){
-			cout<<*(arr+x*n+i)<<" ";	
+			value = *(arr+x*n+i);
+			sum+=value;
+			product*=value;
+			cout<<value<<" ";	
 		}
-		cout<<"\n";	
 		
 		for(int i=x+1;i<n-x;i++){
-			cout<<*(arr+i*n+n-1-x)<<" ";	
+			value=*(arr+i*n+n-1-x);
+			sum+=value;
+			product*=value;
+			cout<<value<<" ";
 		}
-		cout<<"\n";	
 		
 		for(int i=n-(x+1);i>x;i--){
-			cout<<*(arr+(n-1-x)*n+i-1)<<" ";	
+			value=*(arr+(n-1-x)*n+i-1);
+			sum+=value;
+			product*=value;
+			cout<<value<<" ";	
 		}
-		cout<<"\n";	
 		
 		for(int i=n-(x+2);i>x;i--){
-			cout<<*(arr+i*n+x)<<" ";	
-		}
-		cout<<"\n";		
+			value=*(arr+i*n+x);
+			sum+=value;
+			product*=value;
+			cout<<value<<" ";	
+		}	
 	}
+	cout<<"\nSuma elementow = " << sum << "\nIloczyn elementow = " << product;
 }
 
 int main()
