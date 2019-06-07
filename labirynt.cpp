@@ -54,12 +54,14 @@ void spiral_count(int * arr, int n)
 	cout<<"\nSuma elementow = " << sum << "\nIloczyn elementow = " << product;
 }
 
-//Calculates product of numbers located on main diagonal of matrix
+//Calculates product of non-negative numbers located on main diagonal of matrix
 void diagonal_product(int * arr, int n)
 {
 	int product=1;
 	for(int i=0;i<n;i++){
-		product *= *(arr+i*n+i);
+		if(*(arr+i*n+i) >= 0){
+			product *= *(arr+i*n+i);	
+		}
 	}
 	cout<<"\nIloczyn elementow znajdujacych sie na przekatnej = " << product;	
 }
