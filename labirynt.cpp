@@ -61,9 +61,22 @@ void diagonal_product(int * arr, int n)
 	for(int i=0;i<n;i++){
 		product *= *(arr+i*n+i);
 	}
-	cout<<"\nIloczyn elementow znajdujacych siê na przekatnej = " << product;
-	
+	cout<<"\nIloczyn elementow znajdujacych sie na przekatnej = " << product;	
 }
+
+//Calculates sum of all negative numbers located outside main diagonal of matrix
+void sum_negative_outside_diagonal(int * arr, int n)
+{
+	int sum=0;
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			if(j!= i && *(arr+i*n+j)<0){
+				sum += *(arr+i*n+j);
+			}
+		}
+	}
+	cout<<"\nSuma elemementow ujemnych znajdujacych sie poza przekatna = "<< sum;
+ } 
 
 int main()
 {
@@ -86,4 +99,5 @@ int main()
 	cout<<"\nSpiral matrix:\n\n";
 	spiral_count((int*)arr,n);
 	diagonal_product((int*)arr,n);
+	sum_negative_outside_diagonal((int*)arr,n);
 }
